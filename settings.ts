@@ -52,7 +52,7 @@ export class AutoDisplaystyleInlineMathSettingTab extends PluginSettingTab {
 
 		new Setting(containerEl)
 			.setName("Superscript")
-			.setDesc("Whether to add \\displaystyle to superscripts")
+			.setDesc("Whether to add \\displaystyle to each superscript in an inline math.")
 			.addToggle(toggle => toggle
 				.setValue(this.plugin.settings.superscript)
 				.onChange(async (value) => {
@@ -69,7 +69,7 @@ export class AutoDisplaystyleInlineMathSettingTab extends PluginSettingTab {
 
 		new Setting(containerEl)
 			.setName("Subscript")
-			.setDesc("Whether to add \\displaystyle to subscripts")
+			.setDesc("Whether to add \\displaystyle to each subscript in an inline math.")
 			.addToggle(toggle => toggle
 				.setValue(this.plugin.settings.subscript)
 				.onChange(async (value) => {
@@ -86,7 +86,7 @@ export class AutoDisplaystyleInlineMathSettingTab extends PluginSettingTab {
 
 		new Setting(containerEl)
 			.setName("Additional functions to be prepended with \\displaystyle")
-			.setDesc("A list of function names to add \\displaystyle before them. (separated by commas)")
+			.setDesc("A list of function names (separated by commas), where each instance of these functions in an inline math will be prepended with \\displaystyle.")
 			.addText((text) => {
                 text
                     .setPlaceholder('example: frac, binom')
