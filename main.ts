@@ -63,7 +63,7 @@ export default class AutoDisplaystyleInlineMathPlugin extends Plugin {
 					// I intentionally avoided "if (!options.display)" because MathJax.tex2chtml() seems to 
 					// return a display math even when "options" does not have "display" property.
 					if (options.display === false) {
-						if (settings.start) 
+						if (settings.front) 
 							source = '\\displaystyle ' + source;
 
 						if (settings.superscript) {

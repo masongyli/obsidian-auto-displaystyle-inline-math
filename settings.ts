@@ -3,14 +3,14 @@ import { PluginSettingTab, Setting, App, Component, MarkdownRenderer } from 'obs
 import AutoDisplaystyleInlineMathPlugin from 'main'
 
 export interface AutoDisplaystyleInlineMathSettings {
-	start: boolean;
+	front: boolean;
 	superscript: boolean,
 	subscript: boolean,
 	additionalFunctionNames: string;
 }
 
 export const DEFAULT_SETTINGS: AutoDisplaystyleInlineMathSettings = {
-	start: true,
+	front: true,
 	superscript: false,
 	subscript: false,
 	additionalFunctionNames: '',
@@ -34,12 +34,12 @@ export class AutoDisplaystyleInlineMathSettingTab extends PluginSettingTab {
 		containerEl.empty();
 
 		new Setting(containerEl)
-			.setName("At start")
-			.setDesc("Whether to add \\displaystyle at the start of inline maths")
+			.setName("Front")
+			.setDesc("Whether to add \\displaystyle at the front of an inline math.")
 			.addToggle(toggle => toggle
-				.setValue(this.plugin.settings.start)
+				.setValue(this.plugin.settings.front)
 				.onChange(async (value) => {
-					this.plugin.settings.start = value;
+					this.plugin.settings.front = value;
 					await this.plugin.saveSettings();
 					this.plugin.rerender();
             }))
